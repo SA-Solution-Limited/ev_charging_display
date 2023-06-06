@@ -1,0 +1,68 @@
+/* Technetium PHP Framework version 2.8
+   Author: Tony Leung
+   E-mail: tony.leung@cruzium.com
+
+   Hanburger.css - v1.1.2
+*/
+
+.hamburger {
+	width:50px;
+	height:50px;
+	position:absolute;
+	padding:0;
+	border:none;
+	background:none;
+	display:none;
+	z-index:4;
+}
+.hamburger:before,
+.hamburger:after,
+.hamburger span {
+	content:'';
+	width:70%;
+	height:4%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:0 0 0 -35%;
+	background:#999999;
+	display:block;
+}
+.hamburger:before {
+	margin-top:-24%;
+}
+.hamburger span {
+	margin-top:-2%;
+}
+.hamburger:after {
+	margin-top:20%;
+}
+
+/* animation */
+.hamburger:not(.no-animation),
+.hamburger:not(.no-animation):before,
+.hamburger:not(.no-animation):after,
+.hamburger:not(.no-animation) span {
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	transition:all 0.3s;
+}
+.mm-opened .hamburger:not(.no-animation):before,
+.mm-opened .hamburger:not(.no-animation):after {
+	margin-top:-2%;
+}
+.mm-opened .hamburger:not(.no-animation) span {
+	width:70%;
+	left:100%;
+	opacity:0;
+}
+.mm-opened .hamburger:not(.no-animation):before {
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+.mm-opened .hamburger:not(.no-animation):after {
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
