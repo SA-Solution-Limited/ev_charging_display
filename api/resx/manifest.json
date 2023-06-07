@@ -1,0 +1,43 @@
+<?php
+/**
+ * Technetium PHP Framework
+ * @version 3.0
+ * @author Tony Leung <tony.leung@cruzium.com>
+ * @copyright Copyright (c) 2023 Cruzium Digital
+ * @license https://opensource.org/license/gpl-3-0/ GPL-3.0-only
+ */
+
+$manifest = new stdClass();
+$manifest->short_name = ArrayHelper::getValue($locale, 'site_name_st', $locale['site_name']);
+$manifest->name       = $locale['site_name'];
+$manifest->icons      = array('images/webapp/icon.png');
+$manifest->start_url  = $config['urlBase'];
+$manifest->scope      = $config['urlBase'];
+$manifest->display    = 'standalone';
+$manifest->theme_color      = $config['pwaTheme'];
+$manifest->background_color = $config['pwaBackground'];
+
+$manifest->icons = array_filter(array_map(function($ico) use ($config) {
+	if (!is_file($config['docRoot'].$ico)) return(false);
+	$meta = getimagesize($ico);
+	if ($meta[2] != IMAGETYPE_PNG) return(false);
+	return(array(
+		'src' => $config['urlBase'].$ico,
+		'type' => 'image/png',
+		'sizes' => "{$meta[0]}x{$meta[1]}",
+	));
+}, $manifest->icons));
+
+if (HttpHelper::getGetParam('utm_source')) {
+	$utm = array(
+		'utm_source' => $_GET['utm_source'],
+		'utm_medium' => HttpHelper::getGetParam('utm_medium', null),
+		'utm_campaign' => HttpHelper::getGetParam('utm_campaign', null),
+		'utm_term' => HttpHelper::getGetParam('utm_term', null),
+		'utm_content' => HttpHelper::getGetParam('utm_content', null),
+	);
+	$manifest->start_url = UrlHelper::addQueryString($utm, $manifest->start_url);
+}
+
+echo(json_encode($manifest));
+?>

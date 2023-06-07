@@ -1,0 +1,87 @@
+/**
+ * Technetium PHP Framework
+ * @version 3.0
+ * @author Tony Leung <tony.leung@cruzium.com>
+ * @copyright Copyright (c) 2023 Cruzium Digital
+ * @license https://opensource.org/license/gpl-3-0/ GPL-3.0-only
+ *
+ * This stylesheet contains style overrides of plugins.
+ */
+
+@charset "utf-8";
+
+/* bootstrap > layout */
+.container {
+	max-width:1920px;
+}
+
+/* bootstrap > components > alerts */
+.alert {
+	margin-bottom:1.25rem;
+	padding-left:calc(1.75rem + 1em);
+	line-height:1.5;
+}
+.alert:last-child {
+	margin-bottom:0;
+}
+.alert:before {
+	content:'';
+	width:1.25em;
+	height:1.25em;
+	position:absolute;
+	top:calc(0.75rem + 0.125em);
+	left:1rem;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:1em;
+}
+.alert a {
+	color:inherit;
+	text-decoration:underline;
+}
+.alert-info:before {
+	background-image:url(../../images/icon-48x48/info.png);
+}
+.alert-info a {
+	color:var(--bs-info-darker);
+}
+.alert-success:before {
+	background-image:url(../../images/icon-48x48/success.png);
+}
+.alert-success a {
+	color:var(--bs-success-darker);
+}
+.alert-warning:before {
+	background-image:url(../../images/icon-48x48/warning.png);
+}
+.alert-warning a {
+	color:var(--bs-warning-darker);
+}
+.alert-danger:before {
+	background-image:url(../../images/icon-48x48/error.png);
+}
+.alert-danger a {
+	color:var(--bs-danger-darker);
+}
+
+/* bootstrap > components > buttons */
+.btn {
+	border-radius:0;
+}
+.btn:focus,
+.btn:focus-visible,
+.btn:focus:not(:focus-visible) {
+	box-shadow:none;
+	outline:var(--aria-outline);
+}
+
+/* bootstrap > components > forms */
+.form-control:focus {
+	box-shadow:none;
+	outline:var(--aria-outline);
+}
+
+/* bootstrap > utilities > colors */
+.text-muted {
+	color:#999999 !important;
+}

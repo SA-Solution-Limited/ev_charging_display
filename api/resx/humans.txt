@@ -1,0 +1,13 @@
+/* humans.txt initiative - https://humanstxt.org/ */
+
+/* TEAM */
+Developer: Tony Leung
+Site: https://tonyleung.ch/
+Email: tony.leung@cruzium.com
+Location: London, United Kingdom
+
+/* SITE */
+URL: <?php echo(UrlHelper::getOrigin().$config['urlBase']."\n"); ?>
+Standards: HTML5, CSS3
+Framework: Technetium PHP Framework
+Components: Bootstrap, jQuery, and more...

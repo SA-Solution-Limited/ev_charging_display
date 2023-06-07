@@ -1,76 +1,24 @@
-<!DOCTYPE html>
-<html lang="zh-hk" ng-app="app">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>EV Charging Display</title>
-<meta http-equiv="content-language" content="zh-hk" />
+<?php
+/**
+ * Technetium PHP Framework
+ * @version 3.0
+ * @author Tony Leung <tony.leung@cruzium.com>
+ * @copyright Copyright (c) 2023 Cruzium Digital
+ * @license https://opensource.org/license/gpl-3-0/ GPL-3.0-only
+ * 
+ * @var Site $this
+ */
 
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="robots" content="INDEX,FOLLOW" />
+$pagePluginStyles = array(
+	$this->urlBase.'library/cdn-plugins/swiper/swiper-element-bundle.min.css',
+);
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+$pageLevelPlugins = array(
+	$this->urlBase.'library/cdn-plugins/swiper/swiper-element-bundle.min.js',
+);
 
-
-
-<!-- Plugins StyleSheets -->
-<link rel="stylesheet" type="text/css" media="all" href="./library/cdn-plugins/normalize.css/normalize.css" id="normalize-css" />
-<link rel="stylesheet" type="text/css" media="all" href="./library/cdn-plugins/bootstrap/css/bootstrap.min.css" id="bootstrap-css" />
-<link rel="stylesheet" type="text/css" media="all" href="./library/cdn-plugins/bootstrap-extends/bootstrap4-colors.min.css" id="botstrap-colors-css" />
-<script type="text/javascript" id="YYMzLvOxpHgQ-css-render-js">(function(){
-	var a=document.createElement('link');a['rel']='stylesheet';a['type']='text/css';a['media']='all';a['href']='/ev-charging-display/library/cdn-plugins/swiper/swiper-element-bundle.min.css?mt=1685906514';a['id']='YYMzLvOxpHgQ-css';
-	var n=document.getElementById('YYMzLvOxpHgQ-css-render-js');n.parentNode.insertBefore(a,n);n.parentNode.removeChild(n);
-})();</script>
-
-<!-- Theme StyleSheets -->
-<link rel="stylesheet" type="text/css" media="all" href="./library/css/plugins.css?mt=1685903690" id="plugins-css" />
-<link rel="stylesheet" type="text/css" media="all" href="./library/css/font.css?mt=1685906405" id="font-css" />
-<link rel="stylesheet" type="text/css" media="all" href="./library/css/framework.css?mt=1685494483" id="framework-css" />
-<link rel="stylesheet" type="text/css" media="all" href="./library/css/style.css?mt=1685904734" id="style-css" />
-
-<!-- Technetium Framework -->
-<script type="text/javascript" src="./library/cdn-plugins/technetium.framework/util/util.min.js" defer></script>
-<script type="text/javascript">
-var locale = 'zh-hk';
-var urlBase = './';
-var urlLocale = './';
-var urlApi = '/api/api/';
-</script>
-
-<!-- AngularJS -->
-<script type="text/javascript" src="./library/cdn-plugins/angularjs/angular.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/angularjs/angular-resource.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/angularjs/angular-sanitize.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/angular-translate/angular-translate.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/angular-translate/angular-translate-loader-static-files.min.js"></script>
-<script type="text/javascript" src="./library/js/app/app.js"></script>
-<script type="text/javascript" src="./library/js/app/app.config.js"></script>
-<script type="text/javascript" src="./library/js/app/app.api.js"></script>
-<script type="text/javascript" src="./library/js/app/app.task.js"></script>
-<script type="text/javascript">
-var urlNgLib = './library/js/app/';
-</script>
-
-</head>
-
-<body class="">
-<div class="page-wrapper">
-	<div class="page-header" ng-controller="HeaderController" ng-class="{'bg-danger': warning}">
-		<div class="container">
-			<div class="clock">{{date}}</div>
-			<div class="weather">
-				<div class="weather-info-chunk">
-					<img class="weather-icon" ng-src="{{weather.icon}}" ng-attr-alt="{{weather.summary}}" />
-					<span class="weather-temperature">{{weather.temperature.value}}{{weather.temperature.unit}}</span>
-				</div>
-				<div class="weather-info-chunk" ng-if="weather.warnings.length">
-					<img class="weather-warning" ng-src="{{item.icon}}" ng-attr-alt="{{item.name}}" ng-repeat="item in weather.warnings" />
-				</div>
-			</div>
-		</div>
-	</div>
+require_once('includes/templates/com.header.php');
+?>
 <div class="page-body">
 	<div class="page-content" ng-controller="ChargingController">
 		<div class="status-vacant" ng-if="state.status == 'vacant'">
@@ -82,7 +30,7 @@ var urlNgLib = './library/js/app/';
 		</div>
 		<div class="card status-entrance" ng-if="state.status == 'entrance'">
 			<div class="card-image">
-				<img src="./images/charging/handbrake.png" />
+				<img src="<?php echo($this->urlBase); ?>images/charging/handbrake.png" />
 			</div>
 			<div class="card-body">
 				司機請留在駕駛室<br />
@@ -113,7 +61,7 @@ var urlNgLib = './library/js/app/';
 		</div>
 		<div class="card status-exit" ng-if="state.status == 'exit'">
 			<div class="card-image">
-				<img src="./images/charging/exit.png" />
+				<img src="<?php echo($this->urlBase); ?>images/charging/exit.png" />
 			</div>
 			<div class="card-body">
 				請離開充電區<br />
@@ -122,7 +70,7 @@ var urlNgLib = './library/js/app/';
 		</div>
 		<div class="card status-warning" ng-if="state.status == 'warning'">
 			<div class="card-image">
-				<img src="./images/charging/warning.png" />
+				<img src="<?php echo($this->urlBase); ?>images/charging/warning.png" />
 			</div>
 			<div class="card-body">
 				{{state.warning.message}}<br />
@@ -132,16 +80,16 @@ var urlNgLib = './library/js/app/';
 		<div class="logo">
 			<div class="container">
 				<div class="logo-chunk">
-					<div class="logo-title">項目負責人：</div>
+					<div class="logo-title">XXXX：</div>
 					<div class="logo-image">
-						<img src="./images/logo-gmi-motors.png" alt="GMi Motors" />
-						<img src="./images/logo-epd.png" alt="環境保護署" />
+						<img src="<?php echo($this->urlBase); ?>images/logo-gmi-motors.png" alt="GMi Motors" />
+						<img src="<?php echo($this->urlBase); ?>images/logo-epd.png" alt="環境保護署" />
 					</div>
 				</div>
 				<div class="logo-chunk">
-					<div class="logo-title">開發團隊：</div>
+					<div class="logo-title">XXXX：</div>
 					<div class="logo-image">
-						<img src="./images/logo-pyss.png" alt="培英中學" />
+						<img src="<?php echo($this->urlBase); ?>images/logo-pyss.png" alt="培英中學" />
 					</div>
 				</div>
 			</div>
@@ -176,16 +124,6 @@ var urlNgLib = './library/js/app/';
 				<div class="img-holder"><img ng-src="{{item.image}}" /></div>
 				<figcaption>{{item.label}}</figcaption>
 			</figure>
-		</div>
-		<div class="card" data-display="6" ng-if="data.liveTraffic">
-			<div class="card-header">
-				<h2 class="card-title">實時交通情況</h2>
-			</div>
-			<div class="card-body p-0">
-				<div class="google-maps">
-					<iframe ng-attr-src="{{data.liveTraffic}}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="position-absolute"></iframe>
-				</div>
-			</div>
 		</div>
 	</aside>
 </div>
@@ -269,8 +207,7 @@ app.controller('SidebarController', ['$rootScope', '$scope', '$element', '$api',
 		tropicalCycloneInfo: null,
 		weatherForecast: null,
 		trafficNews: null,
-		trafficSnapshots: null,
-		liveTraffic: null
+		trafficSnapshots: null
 	};
 
 	$task.register('weatherForecast', function() {
@@ -292,14 +229,6 @@ app.controller('SidebarController', ['$rootScope', '$scope', '$element', '$api',
 				image: 'https://tdcctv.data.one.gov.hk/' + item.code + '.JPG?_=' + new Date().getTime()
 			});
 		});
-	}, 5 * 60, true);
-
-	$task.register('liveTraffic', function() {
-		var embedUrl = 'https://www.google.com/maps/embed';
-		$scope.data.liveTraffic = embedUrl + Util.addQueryString({
-			pb: '!1m40!1m12!1m3!1d3909.5314272435417!2d114.20325798038768!3d22.349624772471774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m3!3m2!1d22.315092!2d114.2249868!4m3!3m2!1d22.3350625!2d114.207751!4m3!3m2!1d22.3402736!2d114.2078363!4m3!3m2!1d22.3493787!2d114.1998551!4m3!3m2!1d22.349954399999998!2d114.2013884!4m3!3m2!1d22.348961499999998!2d114.20038059999999!5e0!3m2!1sen!2suk!4v1685726741043!5m2!1sen!2suk',
-			_: new Date().getTime()
-		}, embedUrl);
 	}, 5 * 60, true);
 
 	$task.register('sidebarSlideshow', function() {
@@ -328,32 +257,6 @@ app.controller('SidebarController', ['$rootScope', '$scope', '$element', '$api',
 	}, true);
 }]);
 </script>
-</div>
-
-<!-- Global JavaScripts -->
-<script type="text/javascript" src="./library/cdn-plugins/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/popper.js/popper.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/day.js/dayjs.min.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/day.js/locale/zh-hk.js"></script>
-<script type="text/javascript" src="./library/cdn-plugins/technetium.framework/api-helper/api-helper.js"></script>
-
-<!-- Page Level Plugins -->
-<script type="text/javascript" src="./library/cdn-plugins/swiper/swiper-element-bundle.min.js"></script>
-
-<!-- Page Level Scripts -->
-
-<!-- Plugin Configurations -->
-<script type="text/javascript">
-(function() {
-	dayjs.locale('zh-hk');
-})();
-</script>
-
-<!-- Page Init Scripts -->
-<script type="text/javascript">
-window.addEventListener('load', function() {
-	});
-</script>
-</body>
-</html>
+<?php
+require_once('includes/templates/com.footer.php');
+?>

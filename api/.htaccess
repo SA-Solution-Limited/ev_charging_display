@@ -1,0 +1,21 @@
+# Technetium PHP Framework 
+# Version 3.0
+# Author: Tony Leung <tony.leung@cruzium.com>
+# Copyright: (c) 2023 Cruzium Digital
+# License: GPL-3.0-only
+
+# Authentication
+#AuthType Basic
+#AuthName "Restricted Area"
+#AuthUserFile /var/www/home/html/.htpasswd
+#Require valid-user
+
+RewriteEngine On
+
+# Colonial Hostame
+#RewriteCond %{HTTP_HOST} !^www.domain.com$ [NC]
+#RewriteRule ^(.*)$ https://www.domain.com/$1 [L,R=301]
+
+# Technetium Framework
+Options FollowSymLinks
+RewriteRule (.*) index.php [L]
