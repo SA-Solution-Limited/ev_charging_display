@@ -91,5 +91,16 @@ abstract class AbstractBaseController extends Controller
 		// render template
 		return template::View ( $this->template, $this->sections );
 	}
+
+	
+	
+	protected function setCurrentUser($userId, $userName) {
+		if(!file_exists(SITE_ROOT."/tmp")){
+			mkdir(SITE_ROOT."/tmp", 0777, true);
+		}
+		$sessionVar = a4p::Model ( 'SessionVar' );
+		$sessionVar->username = $userName;
+		$sessionVar->userId = $userId;
+	}
 	
 }

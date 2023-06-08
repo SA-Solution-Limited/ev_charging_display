@@ -29,35 +29,31 @@ EOD;
 		
 		$sections ['content'] = 'login/login.php';
 		
-		$template = 'template/template.php';
+		$template = 'template/login_template.php';
 		template::View ( $template, $sections, $env );
 	}
 	
 	protected function onPageLoad(array &$env, $param = null) {
 	}
 	
-	/**
-	 * @ajaxcall
-	 */
-
-	 /*
+	
 	public function login() {
 		$username = $_POST ['username'];
 		$password = $_POST ['password'];
 		$redirect = $_POST ['redirect'];
 		
-		$service = new UserService ();
+		//$service = new UserService ();
 		$user = null;
 		
 		try {
-			$user = $service->login ( $username, $password );
+			//$user = $service->login ( $username, $password );
 		} catch ( Exception $e ) {
 			return a4p::javascript ( "alert('Invalid username or password');" );
 		}
 		
 		a4p::setAuth ( true );
-		$this->setCurrentUser ( $user );
+		$this->setCurrentUser ( 0, "Demo User" );
 		
-		return a4p::redirect ( $redirect ? rawurldecode($redirect) : '/home' );
-	}*/
+		return $this->redirect("/home");
+	}
 }

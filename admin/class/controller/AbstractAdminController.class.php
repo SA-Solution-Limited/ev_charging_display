@@ -3,15 +3,15 @@ require_once "controller/AbstractBaseController.class.php";
 abstract class AbstractAdminController extends AbstractBaseController {
 	public $logger;
     public $sections = array ();
-	public $template = 'admin/template/template.php';
+	public $template = 'template/template.php';
 	public $env = array ();
 
     public function __construct() {
 		$this->logger = Logger::getLogger('RollingLogFileAppender');
 		
-		$this->sections ['header'] = 'admin/template/header.php';
-		$this->sections ['menu'] = 'admin/template/menu.php';
-		$this->sections ['footer'] = 'admin/template/footer.php';
+		$this->sections ['header'] = 'template/header.php';
+		$this->sections ['menu'] = 'template/menu.php';
+		$this->sections ['footer'] = 'template/footer.php';
 		
 		// should be defined otherwise expection thrown
 		$this->env ['pluginstyles'] = "";
@@ -61,7 +61,6 @@ abstract class AbstractAdminController extends AbstractBaseController {
 		}
 		$this->user = new stdClass();
 		$this->user->loginId = $this->getCurrentUser('username');
-		$this->user->role = $this->getCurrentUser('role');
 	}
 	
 	public function requireRole() {
@@ -92,21 +91,21 @@ abstract class AbstractAdminController extends AbstractBaseController {
 			a4p::Reset('SessionVar');
 			session_unset();
 			session_destroy();
-			header('Location: /login');
+			header('Location: /login?e=403');
 			exit();
 		} catch (Exception $e) {
 			a4p::setAuth(false);
 			a4p::Reset('SessionVar');
 			session_unset();
 			session_destroy();
-			header('Location: /login');
+			header('Location: /login?e=403e&m='.$e->getMessage());
 			exit();
 		}
 	}
 	
-	protected function setCurrentUser($user) {
+	protected function setCurrentUser($userId, $userName) {
 		$sessionVar = a4p::Model ( 'SessionVar' );
-		$sessionVar->username = $user->loginId;
-		$sessionVar->role = $user->role;
+		$sessionVar->username = $userName;
+		$sessionVar->userId = $userId;
 	}
 }

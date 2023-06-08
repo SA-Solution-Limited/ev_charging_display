@@ -8,7 +8,7 @@
 			<div class="row justify-content-center">
 				<div class="col-8">
 					<div class="card mb-3 mt-5">
-						<form id="loginform" method="post">
+						<form id="loginform" method="post" action="/login/login">
 							<div class="card-header align-items-center">
 								<div class="row mb-2">
 									<h1 >EV Charging Display Admin Portal</h1>

@@ -68,20 +68,6 @@
 <body class="<?=$env['bodyclass']?>">
 <div class="layout-wrapper layout-content-navbar  ">
   <div class="layout-container">
-  <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" data-bg-class="bg-menu-theme" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-  </aside>
-  <div class="layout-page">
-	<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-		<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
-			<?php template::section("header"); ?>
-		</div>
-		<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-			<?php template::section("header"); ?>
-		</div>
-		<div class="navbar-search-wrapper search-input-wrapper  d-none">
-			<?php template::section("header"); ?>
-		</div>
-	</div>
 	<!-- BEGIN CONTAINER -->   
 	<div class="content-wrapper">
 		<div class="container-xxl flex-grow-1 container-p-y">
@@ -111,7 +97,7 @@
 	<?php a4p::loadScript(); ?>
 	<?php plugin::element("script", $env); ?>
 	<!-- END JAVASCRIPTS -->
-  </div>
+
   </div>
 </div>
 </body>

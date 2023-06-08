@@ -11,6 +11,7 @@ class HomeController extends AbstractAdminController
 		if (!isset($param[1])) {
 			$param[1] = 'index';
 		}
+		
 	}
 	
 	public function index() {
