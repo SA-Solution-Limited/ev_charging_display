@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="/extlib/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
+    <link rel="stylesheet" href="/extlib/sneat/assets/vendor/css/pages/page-auth.css" />
 
     <!-- Helpers -->
     <script src="/extlib/sneat/assets/vendor/js/helpers.js"></script>
@@ -66,22 +67,22 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="<?=$env['bodyclass']?>">
-<div class="layout-wrapper layout-content-navbar  ">
-  <div class="layout-container">
-	<!-- BEGIN CONTAINER -->   
-	<div class="content-wrapper">
-		<div class="container-xxl flex-grow-1 container-p-y">
+
+		<div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
 		<?php template::section("content"); ?>
 		</div>
-
-		<?php template::section("footer"); ?>
-	</div>
+		</div>
+		
 	<!-- END CONTAINER -->
 	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 	<!-- BEGIN CORE PLUGINS -->
 	<script type="text/javascript" src="/extlib/vendor/components/jquery/jquery.min.js"></script>  
 	<script type="text/javascript" src="/extlib/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/extlib/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/extlib/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/extlib/sneat/assets/vendor/js/menu.js"></script>
+    <script src="/extlib/sneat/assets/js/main.js"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<?=$env['plugins']?>
@@ -98,8 +99,6 @@
 	<?php plugin::element("script", $env); ?>
 	<!-- END JAVASCRIPTS -->
 
-  </div>
-</div>
 </body>
 <!-- END BODY -->
 </html>

@@ -21,7 +21,7 @@ abstract class AbstractAdminController extends AbstractBaseController {
 		$this->env ['init'] = "";
 		
 		$this->env ['current_user'] = $this->getCurrentUser ();
-		$this->env['bodyclass'] = 'page-header-fixed page-full-width';
+		$this->env['bodyclass'] = "";
 	}
 
     public function pageLoad() {

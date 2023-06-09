@@ -25,7 +25,7 @@ abstract class AbstractBaseController extends Controller
 		$this->env ['scripts'] = "";
 		$this->env ['init'] = "";
 		
-		$this->env['bodyclass'] = 'page-header-fixed page-full-width';
+		$this->env['bodyclass'] = "";
 		
 	}
 	

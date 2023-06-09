@@ -1,18 +1,11 @@
-	<!-- BEGIN LOGO -->
-	<div class="logo">
-	</div>
-	<!-- END LOGO -->
-	<!-- BEGIN LOGIN -->
-	<div class="content-wrapper">
-		<div class="container-xxl flex-grow-1 container-p-y">
-			<div class="row justify-content-center">
-				<div class="col-8">
-					<div class="card mb-3 mt-5">
+
+					<div class="card">
+					<div class="card-body">
 						<form id="loginform" method="post" action="/login/login">
 							<div class="card-header align-items-center">
 								<div class="row mb-2">
-									<h1 >EV Charging Display Admin Portal</h1>
-									<h3 class="form-title">Login</h3>
+									<h4 class="">EV Charging Display<br/>Admin Portal</h4>
+									<span>Login</span>
 								</div>
 							</div>
 							<div class="card-body">
@@ -32,7 +25,7 @@
 											<label class="control-label">Password</label>
 											<div class="input-group">
 												<span class="input-group-text" id="basic-addon11"><i class="fa fa-lock"></i></span>
-												<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>
+												<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="********" name="password"/>
 											</div>
 										</div>
 									</div>
@@ -46,11 +39,4 @@
 							</div>
 						</form>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="copyright">
-		
-	</div>
-	<!-- END LOGIN -->
+					</div>

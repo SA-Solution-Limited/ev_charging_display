@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="/extlib/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
+	
+    <link rel="stylesheet" href="/extlib/sneat/assets/vendor/css/pages/page-auth.css" />
 
     <!-- Helpers -->
     <script src="/extlib/sneat/assets/vendor/js/helpers.js"></script>
@@ -51,9 +53,6 @@
 	padding-bottom: 38.9375px !important;
 	}</style>
 
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="/extlib/sneat/assets/js/config.js"></script>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN THEME STYLES --> 
 <!-- END THEME STYLES -->
@@ -69,6 +68,7 @@
 <div class="layout-wrapper layout-content-navbar  ">
   <div class="layout-container">
   <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" data-bg-class="bg-menu-theme" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+  	<?php template::section("menu"); ?>
   </aside>
   <div class="layout-page">
 	<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -96,10 +96,39 @@
 	<script type="text/javascript" src="/extlib/vendor/components/jquery/jquery.min.js"></script>  
 	<script type="text/javascript" src="/extlib/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/extlib/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="/extlib/sneat/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="/extlib/sneat/assets/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/extlib/sneat/assets/js/config.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/popper/popper.js"></script>
+	<script src="/extlib/sneat/assets/vendor/js/bootstrap.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+	<script src="/extlib/sneat/assets/vendor/libs/hammer/hammer.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/i18n/i18n.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/typeahead-js/typeahead.js"></script>
+
+	<script src="/extlib/sneat/assets/vendor/js/menu.js"></script>
+	<!-- endbuild -->
+
+	<!-- Vendors JS -->
+	<script src="/extlib/sneat/assets/vendor/libs/quill/katex.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/quill/quill.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/select2/select2.js"></script>
+	<script src="/extlib/sneat/assets/vendor/libs/block-ui/block-ui.js"></script>
+
+	<!-- Main JS -->
+	<script src="/extlib/sneat/assets/js/main.js"></script>
+
+	<!-- Page JS -->
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<?=$env['plugins']?>
 	<!-- END PAGE LEVEL PLUGINS -->
+	
 	<?=$env['scripts']?>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {    

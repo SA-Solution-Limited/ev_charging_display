@@ -9,19 +9,16 @@ class LoginController extends AbstractBaseController {
 		$env ['title'] = 'Login';
 		$env ['bodyclass'] = 'login';
 		$env ['styles'] = <<< EOD
-	<link href="/resource/css/pages/login.css" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" type="text/css" href="/resource/plugins/select2/select2_metro.css" />
+
 EOD;
 		$env ['plugins'] = <<< EOD
-	<script src="/resource/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>	
-	<script type="text/javascript" src="/resource/plugins/select2/select2.min.js"></script>
+
 EOD;
 		$env ['scripts'] = <<< EOD
-	<script src="/resource/js/login.js" type="text/javascript"></script> 
+
 EOD;
 		$env ['init'] = <<< EOD
-		  Login.init();
-		  login_init();
+
 EOD;
 		
 		// Assign env to template
