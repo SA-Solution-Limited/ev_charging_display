@@ -1,5 +1,6 @@
 <?php
 require_once "controller/AbstractBaseController.class.php";
+require_once "service/AdminUserService.class.php";
 
 /**
  * @ajaxenable
@@ -39,18 +40,24 @@ EOD;
 		$password = $_POST ['password'];
 		$redirect = $_POST ['redirect'];
 		
-		//$service = new UserService ();
-		$user = null;
+		$service = new AdminUserService ();
+		$user = $service->login ( $username, $password );
 		
-		try {
-			//$user = $service->login ( $username, $password );
-		} catch ( Exception $e ) {
-			return a4p::javascript ( "alert('Invalid username or password');" );
+		if(is_null($user)){
+			$_SESSION["js_alert"] = $this->alert("Invalid username or password");
+			if(isset($redirect) && strlen($redirect) > 0){
+				return $this->redirect("/login?redirect=".urlencode($redirect));
+			}else{
+				return $this->redirect("/login");
+			}
 		}
 		
 		a4p::setAuth ( true );
-		$this->setCurrentUser ( 0, "Demo User" );
-		
-		return $this->redirect("/home");
+		$this->setCurrentUser ( $user );
+		if(isset($redirect) && strlen($redirect) > 0){
+			return $this->redirect($redirect);
+		}else{
+			return $this->redirect("/home");
+		}
 	}
 }

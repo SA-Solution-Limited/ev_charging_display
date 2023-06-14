@@ -28,13 +28,11 @@ class db extends _db
 {
 	// db connection settings
 	//*
-	public static $connect_string = "mysql:host=192.168.1.122;dbname=spcn";
-	public static $name = "spn";
+	public static $connect_string = "mysql:host=192.168.1.122;dbname=ev_charging_display";
 	public static $user = "root";
 	public static $pass = "wt2004";
 	/*/
 	public static $connect_string = "mysql:host=localhost:13306;dbname=spn";
-	public static $name = "spn";
 	public static $user = "spn";
 	public static $pass = "spn";
 	//*/

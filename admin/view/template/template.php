@@ -122,6 +122,7 @@
 
 	<!-- Main JS -->
 	<script src="/extlib/sneat/assets/js/main.js"></script>
+	<script src="/resource/js/common.js"></script>
 
 	<!-- Page JS -->
 	<!-- END CORE PLUGINS -->
@@ -134,7 +135,10 @@
 		jQuery(document).ready(function() {    
 		  
 		   <?=$env['init']?>
-		   
+		   <?php if(isset($_SESSION["js_alert"])){
+					echo $_SESSION["js_alert"];
+					unset($_SESSION["js_alert"]);
+		    } ?>
 		});
 	</script>
 	<?php a4p::loadScript(); ?>

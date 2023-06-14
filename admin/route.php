@@ -6,5 +6,8 @@ routing::setup ( array (
 /* Web */
 		'home/?' => 'HomeController',
 		'login/?' => 'LoginController',
+		'logout?' => 'HomeController@logout',
+
+		'CMS/?' => 'admin/CMSController',
 		
 ) );

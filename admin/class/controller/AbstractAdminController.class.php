@@ -1,10 +1,12 @@
 <?php
 require_once "controller/AbstractBaseController.class.php";
+require_once "entity/AdminUsers.class.php";
 abstract class AbstractAdminController extends AbstractBaseController {
 	public $logger;
     public $sections = array ();
 	public $template = 'template/template.php';
 	public $env = array ();
+    private $user;
 
     public function __construct() {
 		$this->logger = Logger::getLogger('RollingLogFileAppender');
@@ -59,8 +61,8 @@ abstract class AbstractAdminController extends AbstractBaseController {
 			header('Location: /login?redirect='.rawurlencode($_SERVER['REQUEST_URI']));
 			exit();
 		}
-		$this->user = new stdClass();
-		$this->user->loginId = $this->getCurrentUser('username');
+		$this->user = $this->getCurrentUser();
+        a4p::assign('currentUser', $this->user);
 	}
 	
 	public function requireRole() {
@@ -81,11 +83,13 @@ abstract class AbstractAdminController extends AbstractBaseController {
 		return a4p::redirect ( "/login" );
 	}
 	
-	protected function getCurrentUser($field = 'username') {
+	protected function getCurrentUser() {
 		$sessionVar = a4p::Model('SessionVar');
 		try {
-			if (@unserialize($sessionVar->{$field}) == null && $sessionVar->{$field} != ""){
-				return $sessionVar->{$field};
+			if (@unserialize($sessionVar->user) != null){
+                $this->user = @unserialize($sessionVar->user);
+                $this->setCurrentUser($this->user);;
+				return $this->user;
 			}
 			a4p::setAuth(false);
 			a4p::Reset('SessionVar');
@@ -103,9 +107,7 @@ abstract class AbstractAdminController extends AbstractBaseController {
 		}
 	}
 	
-	protected function setCurrentUser($userId, $userName) {
-		$sessionVar = a4p::Model ( 'SessionVar' );
-		$sessionVar->username = $userName;
-		$sessionVar->userId = $userId;
+	protected function setCurrentUser(AdminUsers $user) {
+		parent::setCurrentUser($user);
 	}
 }

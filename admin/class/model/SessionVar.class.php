@@ -4,8 +4,7 @@
 class SessionVar
 {
 	/**
-	 * @var string
+	 * @var AdminUsers
 	 */
-	public $username = '';
-	public $userId = 0;
+	public $user = null;
 }

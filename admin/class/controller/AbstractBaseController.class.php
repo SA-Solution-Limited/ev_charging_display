@@ -10,9 +10,11 @@ abstract class AbstractBaseController extends Controller
 	public $sections = array ();
 	public $template = 'template/template.php';
 	public $env = array ();
-	public $defaultTitle = "Test Template";
+	public $defaultTitle = "EV Charging Display";
 	
 	public function __construct() {
+		session_start();
+
 		$this->logger = Logger::getLogger('RollingLogFileAppender');
 		
 		$this->sections ['header'] = 'template/header.php';
@@ -91,16 +93,15 @@ abstract class AbstractBaseController extends Controller
 		// render template
 		return template::View ( $this->template, $this->sections );
 	}
-
 	
-	
-	protected function setCurrentUser($userId, $userName) {
+	protected function setCurrentUser(AdminUsers $user) {
 		if(!file_exists(SITE_ROOT."/tmp")){
 			mkdir(SITE_ROOT."/tmp", 0777, true);
 		}
 		$sessionVar = a4p::Model ( 'SessionVar' );
-		$sessionVar->username = $userName;
-		$sessionVar->userId = $userId;
+		$sessionVar->user = serialize($user);
+		$user->latestLoginAt = db::datetime(time());
+		$user->SaveOrUpdate();
 	}
 	
 }

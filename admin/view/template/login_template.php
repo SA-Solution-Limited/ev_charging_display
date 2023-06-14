@@ -83,6 +83,7 @@
     <script src="/extlib/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="/extlib/sneat/assets/vendor/js/menu.js"></script>
     <script src="/extlib/sneat/assets/js/main.js"></script>
+	<script src="/resource/js/common.js"></script>
 	<!-- END CORE PLUGINS -->
 	<!-- BEGIN PAGE LEVEL PLUGINS -->
 	<?=$env['plugins']?>
@@ -92,7 +93,10 @@
 		jQuery(document).ready(function() {    
 		  
 		   <?=$env['init']?>
-		   
+		   <?php if(isset($_SESSION["js_alert"])){
+					echo $_SESSION["js_alert"];
+					unset($_SESSION["js_alert"]);
+		    } ?>
 		});
 	</script>
 	<?php a4p::loadScript(); ?>

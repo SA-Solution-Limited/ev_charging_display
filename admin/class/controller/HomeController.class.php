@@ -15,8 +15,12 @@ class HomeController extends AbstractAdminController
 	}
 	
 	public function index() {
-		
 		return($this->view('home/index.php'));
+	}
+
+	public function logout() {
+		parent::logout();
+		return $this->redirect("/login");
 	}
 	
 }
