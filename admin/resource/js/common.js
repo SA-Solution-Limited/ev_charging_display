@@ -16,10 +16,10 @@ var CustomeModals = function () {
 	
 	var formTmpl = 
 		'<div class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">>' +
-		'<div class="modal-dialog modal-xl" >' +
-			
-		'</div>'+
-	'</div>';
+			'<div class="modal-dialog modal-xl" >' +
+				
+			'</div>'+
+		'</div>';
 
 	return {
         //main function to initiate the module
@@ -106,7 +106,7 @@ var Boxes = function() {
 					'<div class="modal-body">' +
 					'</div>' +
 					'<div class="modal-footer">' +
-						'<button type="button" data-bs-dismiss="modal" class="btn btn-info">Confirm</button>' +
+						'<button type="button" data-bs-dismiss="modal" class="btn btn-info"><i class="menu-icon tf-icons bx bx-check"></i> Confirm</button>' +
 					'</div>' +
 				'</div>' +
 			'</div>'
@@ -117,14 +117,14 @@ var Boxes = function() {
 			'<div class="modal-dialog">' +
 				'<div class="modal-content">' +
                     '<div class="modal-header">' +
-                        '<h5 class="modal-title" id="exampleModalLabel1">Alert</h5>' +
+                        '<h5 class="modal-title" id="exampleModalLabel1">Confirmation</h5>' +
                         '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
                     '</div>' +
                     '<div class="modal-body">' +
 					'</div>' +
 					'<div class="modal-footer">' +
-						'<button type="button" data-bs-dismiss="modal" data-confirm class="btn btn-info">Confirm</button>' +
-						'<button type="button" data-bs-dismiss="modal" class="btn btn-danger pull-left">Cancel</button>' +
+						'<button type="button" data-bs-dismiss="modal" class="btn btn-danger me-auto"><i class="menu-icon tf-icons bx bx-arrow-back"></i> Cancel</button>' +
+						'<button type="button" data-bs-dismiss="modal" data-confirm class="btn btn-info"><i class="menu-icon tf-icons bx bx-check"></i> Confirm</button>' +
 					'</div>' +
 				'</div>' +
 			'</div>' +
