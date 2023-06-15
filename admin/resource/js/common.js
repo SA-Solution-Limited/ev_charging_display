@@ -124,7 +124,7 @@ var Boxes = function() {
 					'</div>' +
 					'<div class="modal-footer">' +
 						'<button type="button" data-bs-dismiss="modal" data-confirm class="btn btn-info">Confirm</button>' +
-                        '<button type="button" data-bs-dismiss="modal" class="btn btn-danger">Cancel</button>' +
+						'<button type="button" data-bs-dismiss="modal" class="btn btn-danger pull-left">Cancel</button>' +
 					'</div>' +
 				'</div>' +
 			'</div>' +

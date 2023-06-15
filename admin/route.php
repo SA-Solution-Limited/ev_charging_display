@@ -5,9 +5,11 @@ require_once "a4plite/plugin.inc.php";
 routing::setup ( array (
 /* Web */
 		'home/?' => 'HomeController',
+		'home/(logout)?' => 'HomeController',
 		'login/?' => 'LoginController',
-		'logout?' => 'HomeController@logout',
 
 		'CMS/?' => 'admin/CMSController',
+		'CMS/(query|edit)?' => 'admin/CMSController',
+		//'CMS/edit?' => 'admin/CMSController@edit',
 		
 ) );

@@ -3,6 +3,7 @@
 require_once 'common/Privilege.class.php';
 require_once "controller/AbstractBaseController.class.php";
 require_once 'common/ExceptionHelper.class.php';
+require_once 'common/Helper.class.php';
 
 abstract class AbstractBaseController extends Controller
 {

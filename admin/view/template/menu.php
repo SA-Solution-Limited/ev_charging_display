@@ -13,7 +13,7 @@
             <span class="menu-header-text">Welcome <?=$currentUser->displayName ?></span>
         </li>
         <li class="menu-item">
-            <a href="/logout" class="menu-link">
+            <a href="/home/logout" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div data-i18n="Logout">Logout</div>
             </a>

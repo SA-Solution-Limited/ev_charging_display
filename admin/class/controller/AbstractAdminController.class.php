@@ -26,9 +26,12 @@ abstract class AbstractAdminController extends AbstractBaseController {
 		$this->env['bodyclass'] = "";
 	}
 
-    public function pageLoad() {
+	
+	protected abstract function onPageLoad($param = null);
+
+    public function pageLoad($param = null) {
 		$this->requireLogin();
-		return $this->index();
+		echo $this->onPageLoad($param);
 	}
 	
 	protected function loadDefaultRoute($slug, array $fnMap = array(), $strict = true) {

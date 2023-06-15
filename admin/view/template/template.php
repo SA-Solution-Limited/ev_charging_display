@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="/extlib/sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="/extlib/sneat/assets/vendor/libs/apex-charts/apex-charts.css" />
 
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="/extlib/datatable/dataTables.bootstrap5.min.css" />
+
+
     <!-- Page CSS -->
 	
     <link rel="stylesheet" href="/extlib/sneat/assets/vendor/css/pages/page-auth.css" />
@@ -71,17 +75,6 @@
   	<?php template::section("menu"); ?>
   </aside>
   <div class="layout-page">
-	<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-		<div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0   d-xl-none ">
-			<?php template::section("header"); ?>
-		</div>
-		<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-			<?php template::section("header"); ?>
-		</div>
-		<div class="navbar-search-wrapper search-input-wrapper  d-none">
-			<?php template::section("header"); ?>
-		</div>
-	</div>
 	<!-- BEGIN CONTAINER -->   
 	<div class="content-wrapper">
 		<div class="container-xxl flex-grow-1 container-p-y">
@@ -120,6 +113,10 @@
 	<script src="/extlib/sneat/assets/vendor/libs/select2/select2.js"></script>
 	<script src="/extlib/sneat/assets/vendor/libs/block-ui/block-ui.js"></script>
 
+	<!-- Datatable -->
+	<script src="/extlib/datatable/jquery.dataTables.min.js"></script>
+	<script src="/extlib/datatable/dataTables.bootstrap5.min.js"></script>
+
 	<!-- Main JS -->
 	<script src="/extlib/sneat/assets/js/main.js"></script>
 	<script src="/resource/js/common.js"></script>
@@ -132,6 +129,10 @@
 	
 	<?=$env['scripts']?>
 	<script type="text/javascript">
+		$.extend( $.fn.dataTable.defaults, {
+			searching: false,
+		} );
+
 		jQuery(document).ready(function() {    
 		  
 		   <?=$env['init']?>
