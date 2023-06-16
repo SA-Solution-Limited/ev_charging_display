@@ -13,7 +13,7 @@ class AdminUserService
 	 */
 	public function login($username, $password)
 	{
-		$user = AdminUsers::findFirst("login_id = :login_id and password = :password", array(':login_id' => $username, ':password' => md5($username.$password)));	
+		$user = AdminUsers::findFirst("loginId = :loginId and password = :password", array(':loginId' => $username, ':password' => md5($username.$password)));	
 	    return $user;
 	}
 }

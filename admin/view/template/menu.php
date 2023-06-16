@@ -12,12 +12,6 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Welcome <?=$currentUser->displayName ?></span>
         </li>
-        <li class="menu-item">
-            <a href="/home/logout" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-log-out"></i>
-                <div data-i18n="Logout">Logout</div>
-            </a>
-        </li>
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Menu</span>
         </li>
@@ -25,6 +19,12 @@
             <a href="/CMS" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-folder-open"></i>
                 <div data-i18n="CMS">CMS</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/home/logout" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div data-i18n="Logout">Logout</div>
             </a>
         </li>
         <!--

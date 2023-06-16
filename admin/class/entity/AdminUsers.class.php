@@ -6,19 +6,19 @@ class AdminUsers extends Entity
 	/** @id id */
 	public $id;
 
-	/** @column login_id */
+	/** @column loginId */
 	public $loginId;
 
 	/** @column password */
 	public $password;
 
-	/** @column display_name */
+	/** @column displayName */
 	public $displayName;
 
-	/** @column create_at */
+	/** @column createAt */
 	public $createAt;
 
-	/** @column latest_login_at */
+	/** @column latestLoginAt */
 	public $latestLoginAt;
 
 	public function __construct() {

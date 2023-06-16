@@ -127,12 +127,13 @@
 	<?=$env['plugins']?>
 	<!-- END PAGE LEVEL PLUGINS -->
 	
-	<?=$env['scripts']?>
 	<script type="text/javascript">
+		Buttons.init();
 		$.extend( $.fn.dataTable.defaults, {
 			searching: false,
 		} );
 
+		<?=$env['scripts']?>
 		jQuery(document).ready(function() {    
 		  
 		   <?=$env['init']?>

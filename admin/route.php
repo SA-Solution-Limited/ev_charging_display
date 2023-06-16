@@ -9,7 +9,9 @@ routing::setup ( array (
 		'login/?' => 'LoginController',
 
 		'CMS/?' => 'admin/CMSController',
-		'CMS/(query|edit)?' => 'admin/CMSController',
+		'CMS/(query|edit|delete)?' => 'admin/CMSController',
 		//'CMS/edit?' => 'admin/CMSController@edit',
 		
+		'api/media/getMediaList' => 'api/MediaController@getMediaList',
+		'api/media/getMediaFile' => 'api/MediaController@getMediaFile',
 ) );

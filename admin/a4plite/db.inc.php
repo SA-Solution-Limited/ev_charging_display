@@ -130,6 +130,7 @@ class db_sqlquery
 	private $orderby = "";
 	private $top = "";
 	private $db = "";
+	private $limit = "";
 
 	public function __construct($db, $args) {
 		$this->db = $db;
@@ -176,6 +177,25 @@ class db_sqlquery
 			$this->orderby .= ", " . $s;
 		return $this;
 	}
+
+	public function limit($offset, $fetch = null){
+		$driver = substr(db::$connect_string, 0, strpos(db::$connect_string, ':'));
+		switch ($driver) {
+			case 'mysql' :
+				if($fetch != null)
+					$this->limit = "limit $offset, $fetch";
+					else
+						$this->limit = "limit $offset";
+					break;
+			case 'sqlsrv' :
+				if($fetch != null)
+					$this->limit = "offset $offset rows fetch next $fetch rows only";
+					else
+						$this->limit = "offset $offset rows";
+					break;
+		}
+		return $this;
+	}
 	
 	public function __toString() {
 		$sql = "";
@@ -194,6 +214,9 @@ class db_sqlquery
 
 		if (strlen($this->orderby) > 2)
 			$sql .= " order by " . substr($this->orderby, 2);
+
+		if(strlen($this->limit) > 0)
+			$sql .= " ".$this->limit;
 		
 		return $sql;
 	}

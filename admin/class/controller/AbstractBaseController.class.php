@@ -4,6 +4,7 @@ require_once 'common/Privilege.class.php';
 require_once "controller/AbstractBaseController.class.php";
 require_once 'common/ExceptionHelper.class.php';
 require_once 'common/Helper.class.php';
+require_once 'common/Constant.class.php';
 
 abstract class AbstractBaseController extends Controller
 {
@@ -103,6 +104,35 @@ abstract class AbstractBaseController extends Controller
 		$sessionVar->user = serialize($user);
 		$user->latestLoginAt = db::datetime(time());
 		$user->SaveOrUpdate();
+	}
+
+	protected function file($file, $contentType = '', $filename = '', $download = true) {
+		require_once 'common/Helper.class.php';
+		if (file_exists ( $file )) {
+			if (Helper::isEmpty($contentType)) {
+				$finfo = finfo_open(FILEINFO_MIME_TYPE);
+				$contentType = finfo_file($finfo, $file);
+				finfo_close($finfo);
+			}
+			if (Helper::isEmpty($filename)) {
+				$filename = pathinfo ( $file, PATHINFO_FILENAME );
+			}
+			
+			if($download){
+				header(Helper::handleIEFileNameEncode($filename, true));
+			}
+			else{
+				header( 'Content-Disposition: inline; filename="'.Helper::handleIEFileNameEncode($filename, false).'"');
+			}
+			header ( 'Content-Type: ' . $contentType );
+			header ( 'Content-Transfer-Encoding: binary' );
+			header ( 'Expires: 0' );
+			header ( 'Cache-Control: must-revalidate' );
+			header ( 'Pragma: public' );
+			header ( 'Content-Length: ' . filesize ( $file ) );
+			flush ();
+			readfile ( $file );
+		}
 	}
 	
 }
