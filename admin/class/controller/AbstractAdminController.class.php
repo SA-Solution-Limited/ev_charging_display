@@ -98,7 +98,7 @@ abstract class AbstractAdminController extends AbstractBaseController {
 			a4p::Reset('SessionVar');
 			session_unset();
 			session_destroy();
-			header('Location: /login?e=403');
+			header('Location: /login?redirect='.urlencode($_SERVER['REQUEST_URI']));
 			exit();
 		} catch (Exception $e) {
 			a4p::setAuth(false);

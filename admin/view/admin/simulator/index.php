@@ -35,4 +35,7 @@
 			<hr />
         </form>
 	</div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-info float-end" data-href="/client" data-target="_blank"><i class="menu-icon tf-icons bx bx-desktop"></i> Client Preview</button>
+    </div>
 </div>
