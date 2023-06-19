@@ -1,0 +1,91 @@
+/* Technetium PHP Framework version 2.8
+   Author: Tony Leung
+   E-mail: tony.leung@cruzium.com
+   
+   Responsive-UI.js - v1.1
+ */
+
+.hamburger {
+	width:50px;
+	height:50px;
+	position:absolute;
+	padding:0;
+	border:none;
+	background:none;
+	display:none;
+	z-index:4;
+}
+.hamburger:before,
+.hamburger:after,
+.hamburger span {
+	content:'';
+	width:70%;
+	height:4%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin:0 0 0 -35%;
+	background:#999999;
+	display:block;
+}
+.hamburger:before {
+	margin-top:-24%;
+}
+.hamburger span {
+	margin-top:-2%;
+}
+.hamburger:after {
+	margin-top:20%;
+}
+.hamburger.animated,
+.hamburger.animated:before,
+.hamburger.animated:after,
+.hamburger.animated span {
+	-webkit-transition:all 0.3s;
+	-moz-transition:all 0.3s;
+	transition:all 0.3s;
+}
+.mm-opened .hamburger.animated:before,
+.mm-opened .hamburger.animated:after {
+	margin-top:-2%;
+}
+.mm-opened .hamburger.animated span {
+	width:70%;
+	left:100%;
+	opacity:0;
+}
+.mm-opened .hamburger.animated:before {
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	transform:rotate(45deg);
+}
+.mm-opened .hamburger.animated:after {
+	-webkit-transform:rotate(-45deg);
+	-moz-transform:rotate(-45deg);
+	transform:rotate(-45deg);
+}
+
+.table-responsive {
+	overflow:auto;
+}
+.table-responsive > table {
+	margin:0;
+}
+
+.video-responsive {
+	margin-bottom:1rem;
+	position:relative;
+}
+.video-responsive:before {
+	content:'';
+	position:relative;
+	padding-bottom:56.25%;
+	display:block;
+}
+.video-responsive > iframe {
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}

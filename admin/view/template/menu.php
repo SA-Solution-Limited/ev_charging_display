@@ -10,15 +10,18 @@
     <ul class="menu-inner py-1 ps ps--active-y">
         <!-- Dashboards -->
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Welcome <?=$currentUser->displayName ?></span>
-        </li>
-        <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Menu</span>
         </li>
         <li class="menu-item">
             <a href="/CMS" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-folder-open"></i>
                 <div data-i18n="CMS">CMS</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="/simulator" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-desktop"></i>
+                <div data-i18n="Simulator">Simulator</div>
             </a>
         </li>
         <li class="menu-item">

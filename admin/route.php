@@ -10,8 +10,10 @@ routing::setup ( array (
 
 		'CMS/?' => 'admin/CMSController',
 		'CMS/(query|edit|delete)?' => 'admin/CMSController',
-		//'CMS/edit?' => 'admin/CMSController@edit',
+		'simulator/?' => 'admin/SimulatorController',
 		
-		'api/media/getMediaList' => 'api/MediaController@getMediaList',
 		'api/media/getMediaFile' => 'api/MediaController@getMediaFile',
+		'api/status/' => 'api/StatusController@getStatus',
+		'api/updateStatus/' => 'api/StatusController@updateStatus',
+		'api/slideshow/' => 'api/MediaController@slideshow',
 ) );

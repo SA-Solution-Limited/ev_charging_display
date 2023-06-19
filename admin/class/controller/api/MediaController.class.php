@@ -15,15 +15,12 @@ class MediaController extends AbstractBaseController {
         $this->service = new CMSService();
     }
 
-    public function getMediaList(){
+    public function slideshow(){
         $medias = $this->service->getActiveSlideShowMedias();
-        $returnModels = array();
         foreach($medias as $m){
-            $returnModel = new MediaListItemModel();
-            Helper::bind($m, $returnModel);
-            $returnModels[] = $returnModel;
+            $returnModels[] = "/api/media/getMediaFile?id=".$m->id;
         }
-        return $this->json(array("result"=>"success", "slideshow"=>$returnModels));
+        return $this->json(array("success"=>true,"message"=>null,"data"=>$returnModels));
     }   
 
     public function getMediaFile(){

@@ -1,0 +1,114 @@
+/**
+ * Technetium PHP Framework
+ * @version 3.0
+ * @author Tony Leung <tony.leung@cruzium.com>
+ * @copyright Copyright (c) 2023 Cruzium Digital
+ * @license https://opensource.org/license/gpl-3-0/ GPL-3.0-only
+ *
+ * This stylesheet declares font-faces.
+ */
+
+@charset "utf-8";
+
+/* Noto Sans TC */
+@font-face {
+	font-family:'Noto Sans TC';
+	font-style:normal;
+	font-weight:300;
+	src:local('Noto Sans TC Light'),
+		url(../fonts/NotoSansTC-Light.otf) format('opentype');
+}
+@font-face {
+	font-family:'Noto Sans TC';
+	font-style:normal;
+	font-weight:400;
+	src:local('Noto Sans TC'),
+		url(../fonts/NotoSansTC-Regular.otf) format('opentype');
+}
+@font-face {
+	font-family:'Noto Sans TC';
+	font-style:normal;
+	font-weight:500;
+	src:local('Noto Sans TC Medium'),
+		url(../fonts/NotoSansTC-Medium.otf) format('opentype');
+}
+@font-face {
+	font-family:'Noto Sans TC';
+	font-style:normal;
+	font-weight:700;
+	src:local('Noto Sans TC Bold'),
+		url(../fonts/NotoSansTC-Bold.otf) format('opentype');
+}
+
+/* Roboto */
+@font-face {
+	font-family:'Roboto';
+	font-style:normal;
+	font-weight:300;
+	src:local('Roboto Light'),
+		url(../fonts/Roboto-Light.ttf) format('truetype'),
+	    url(../fonts/Roboto-Light.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:italic;
+	font-weight:300;
+	src:local('Roboto Light Italic'),
+	    url(../fonts/Roboto-LightItalic.ttf) format('truetype'),
+	    url(../fonts/Roboto-LightItalic.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:normal;
+	font-weight:400;
+	src:local('Roboto'),
+		url(../fonts/Roboto-Regular.ttf) format('truetype'),
+	    url(../fonts/Roboto-Regular.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:italic;
+	font-weight:400;
+	src:local('Roboto Italic'),
+	    url(../fonts/Roboto-Italic.ttf) format('truetype'),
+	    url(../fonts/Roboto-Italic.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:normal;
+	font-weight:500;
+	src:local('Roboto Medium'),
+		url(../fonts/Roboto-Medium.ttf) format('truetype'),
+	    url(../fonts/Roboto-Medium.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:italic;
+	font-weight:500;
+	src:local('Roboto Medium Italic'),
+	    url(../fonts/Roboto-MediumItalic.ttf) format('truetype'),
+	    url(../fonts/Roboto-MediumItalic.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:normal;
+	font-weight:700;
+	src:local('Roboto Bold'),
+		url(../fonts/Roboto-Bold.ttf) format('truetype'),
+	    url(../fonts/Roboto-Bold.woff2) format('woff2');
+}
+@font-face {
+	font-family:'Roboto';
+	font-style:italic;
+	font-weight:700;
+	src:local('Roboto Bold Italic'),
+	    url(../fonts/Roboto-BoldItalic.ttf) format('truetype'),
+	    url(../fonts/Roboto-BoldItalic.woff2) format('woff2');
+}
+
+/* UK Number Plate */
+@font-face {
+	font-family:'UKNumberPlate';
+	src:url(../fonts/UKNumberPlate.ttf) format('truetype'),
+	    url(../fonts/UKNumberPlate.woff2) format('woff2');
+}
