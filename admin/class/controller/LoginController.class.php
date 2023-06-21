@@ -54,7 +54,7 @@ EOD;
 		
 		a4p::setAuth ( true );
 		$this->setCurrentUser ( $user );
-		if(isset($redirect) && strlen($redirect) > 0){
+		if(isset($redirect) && strlen($redirect) > 0 && $redirect != "/login"){
 			return $this->redirect($redirect);
 		}else{
 			return $this->redirect("/home");

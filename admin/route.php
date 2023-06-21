@@ -7,6 +7,7 @@ routing::setup ( array (
 		'home/?' => 'HomeController',
 		'home/(logout)?' => 'HomeController',
 		'login/?' => 'LoginController',
+		'admin/?' => 'HomeController',
 
 		'CMS/?' => 'admin/CMSController',
 		'CMS/(query|edit|delete)?' => 'admin/CMSController',
