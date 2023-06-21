@@ -17,5 +17,12 @@ class ChargingStatus extends Entity
 
 	/** @column batteryLevel */
 	public $batteryLevel;
+
+	/** @column licensePlateNo */
+	public $licensePlateNo;
+
+	/** @column chargingKWh */
+	public $chargingKWh;
+	
 	
 }

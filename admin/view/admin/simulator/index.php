@@ -18,6 +18,23 @@
 				</div>
 			</div>
 			<div class="form-group row mt-3">
+				<label class="col-form-label col-md-3">License Plate No</label>
+				<div class="col-md-9">
+					<div class="input-group">
+						<input type="text" name="licensePlateNo" value="<?php echo($simulator->licensePlateNo); ?>" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group row mt-3">
+				<label class="col-form-label col-md-3">Current Charging Power</label>
+				<div class="col-md-9">
+					<div class="input-group">
+						<input type="number" name="chargingKWh" step="0.1" value="<?php echo($simulator->chargingKWh); ?>" class="form-control" />
+						<div class="input-group-append"><span class="input-group-text">kWh</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row mt-3">
 				<label class="col-form-label col-md-3">Initial Battery Level</label>
 				<div class="col-md-9">
 					<div class="input-group">

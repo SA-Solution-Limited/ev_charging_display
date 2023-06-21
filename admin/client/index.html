@@ -90,7 +90,7 @@ var urlNgLib = './library/js/app/';
 			</div>
 		</div>
 		<div class="card status-charging" ng-if="state.status == 'charging' || state.status == 'charging_completed'">
-			<div class="plate">{{state.plate}}</div>
+			<div class="plate">{{state.licensePlateNo}}</div>
 			<div class="battery" ng-attr-data-color="{{state.batteryColor}}" ng-attr-data-battery-level="{{state.currentBatteryLevel}}">
 				<div class="battery-body">
 					<div class="battery-level">{{state.currentBatteryLevel | number: 0}}%</div>
@@ -108,7 +108,7 @@ var urlNgLib = './library/js/app/';
 			</div>
 			<div class="energy-consumption">
 				<span>{{state.status == 'charging_completed' ? '充電完成' : '充電中'}}</span>
-				<span class="ml-auto">{{state.energyConsumption | number: 1}} kWh</span>
+				<span class="ml-auto">{{state.chargingKWh | number: 0}} kWh</span>
 			</div>
 		</div>
 		<div class="card status-exit" ng-if="state.status == 'exit'">
@@ -200,7 +200,9 @@ app.controller('ChargingController', ['$rootScope', '$scope', '$element', '$api'
 		status: undefined,
 		initialBatteryLevel: undefined,
 		currentBatteryLevel: undefined,
-		batteryColor: undefined
+		batteryColor: undefined,
+		licensePlateNo: '',
+		chargingKWh: 0,
 	};
 
 	var helper = {
@@ -250,7 +252,7 @@ app.controller('ChargingController', ['$rootScope', '$scope', '$element', '$api'
 				initSlideshow();
 			});
 		});
-	}, 6 * 60 * 60, true);
+	}, 30, true);
 
 	$scope.$watch(function() {
 		return($scope.state.status);
